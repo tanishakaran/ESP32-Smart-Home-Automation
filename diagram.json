@@ -1,0 +1,97 @@
+ {
+  "version": 1,
+  "author": "Tanisha Karan",
+  "editor": "wokwi",
+
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 0,
+      "left": -150,
+      "attrs": {}
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 150,
+      "left": -120,
+      "attrs": {
+        "color": "magenta"
+      }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 200,
+      "left": -120,
+      "attrs": {
+        "color": "blue"
+      }
+    },
+
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 180,
+      "left": 80,
+      "attrs": {}
+    },
+
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -20,
+      "left": 180,
+      "attrs": {}
+    },
+
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 120,
+      "left": 250,
+      "attrs": {}
+    }
+  ],
+
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "dht1:VCC", "esp:3V3", "red", [] ],
+    [ "dht1:SDA", "esp:4", "green", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [] ],
+
+    [ "led1:A", "esp:5", "green", [] ],
+    [ "led1:C", "esp:GND.2", "black", [] ],
+
+    [ "led2:A", "esp:18", "green", [] ],
+    [ "led2:C", "esp:GND.2", "black", [] ],
+
+    [ "servo1:PWM", "esp:19", "green", [] ],
+    [ "servo1:V+", "esp:5V", "red", [] ],
+    [ "servo1:GND", "esp:GND.2", "black", [] ],
+
+    [ "ultrasonic1:VCC", "esp:5V", "red", [] ],
+    [ "ultrasonic1:TRIG", "esp:25", "green", [] ],
+    [ "ultrasonic1:ECHO", "esp:26", "green", [] ],
+    [ "ultrasonic1:GND", "esp:GND.3", "black", [] ],
+
+    [ "ldr1:VCC", "esp:3V3", "red", [] ],
+    [ "ldr1:GND", "esp:GND.3", "black", [] ],
+    [ "ldr1:AO", "esp:34", "green", [] ]
+  ],
+
+  "dependencies": {}
+}
